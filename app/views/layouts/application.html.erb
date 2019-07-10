@@ -10,6 +10,25 @@
   </head>
 
   <body>
+    <header>
+      <% if @logged_in %>
+        <p>
+          Logged in as: <%= @current_user.name %>
+        </p>
+        <%= button_to "Log Out", "/auth", method: :delete %>
+      <% else %>
+        <%= link_to "Home", dinner_parties_path %>
+        <%= link_to "Login", new_auth_path %>
+        <%= link_to "Sign Up", new_user_path %>
+        
+      <% end %>
+
+      <% if flash[:message] %>
+          <%= flash[:message] %>
+      <% end %>
+
+    </header>
+
     <%= yield %>
   </body>
 </html>
