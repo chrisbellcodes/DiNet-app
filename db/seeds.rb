@@ -8,5 +8,7 @@
 
 abril = User.create(name: "Abril", username: "abril", password: "abc123")
 chris = User.create(name: "Chris", username: "chris", password: "abc123")
+sam = User.create(name: "Sam", username: "sam")
+
 
 xmas = DinnerParty.create(host: abril)

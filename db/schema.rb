@@ -10,10 +10,10 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_07_08_212223) do
+ActiveRecord::Schema.define(version: 2019_07_10_140154) do
 
   create_table "dinner_parties", force: :cascade do |t|
-    t.integer "host_id"
+    t.integer "user_id"
     t.date "date"
     t.string "location"
     t.time "start_time"
@@ -23,7 +23,7 @@ ActiveRecord::Schema.define(version: 2019_07_08_212223) do
     t.string "description"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["host_id"], name: "index_dinner_parties_on_host_id"
+    t.index ["user_id"], name: "index_dinner_parties_on_user_id"
   end
 
   create_table "guests", force: :cascade do |t|
