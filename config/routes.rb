@@ -7,7 +7,7 @@ Rails.application.routes.draw do
   resources :users
 
   resources :auth, only: [:new, :create]
-  
+
   delete "/auth", to: "auth#destroy"
 
 

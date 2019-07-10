@@ -1,18 +1,32 @@
 <h1><%= @dinner.name %></h1>
-<h2>Host: <%= @dinner.host.name %> </h2>
 
+  <!--  If login you can see  -->
+  <% if @current_user %>
+    <h2>Host: <%= @dinner.host.name %> </h2>
+  <% end %>
 <h2>Party Details</h2>
 
 <ul>
+
+  <!--  Everyone can see -->
   <li>Theme: <%= @dinner.theme %> </li>
   <li>Description: <%= @dinner.description %> </li>
-  <li>Location: <%= @dinner.location %> </li>
-  <li>Date: <%= @dinner.date %> </li>
-  <li>Start Time: <%= @dinner.start_time %> </li>
-  <li>End Time: <%= @dinner.end_time %> </li>
-</ul>
 
-<h2>Guest List</h2>
 
-<p> <%= button_to "Cancel This Party", dinner_party_path(@dinner), method: :delete %></p>
-<p> <%= button_to "Edit This Party", edit_dinner_party_path, method: :get %></p>
+    <!--  If login you can see -->
+    <% if @current_user %>
+        <li>Location: <%= @dinner.location %> </li>
+        <li>Date: <%= @dinner.date %> </li>
+        <li>Start Time: <%= @dinner.start_time %> </li>
+        <li>End Time: <%= @dinner.end_time %> </li>
+      </ul>
+
+      <h2>Guest List</h2>
+      <p> <%= button_to "Join This Party", new_guest_path, method: "get" %></p>
+
+    <% end %>
+<!--  Only the Host can see -->
+<% if @current_user && @current_user.hosted_parties.find(params[:id]) %>
+    <p> <%= button_to "Cancel This Party", dinner_party_path(@dinner), method: :delete %></p>
+    <p> <%= button_to "Edit This Party", edit_dinner_party_path, method: :get %></p>
+<% end %>

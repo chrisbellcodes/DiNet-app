@@ -17,11 +17,10 @@ class DinnerPartiesController < ApplicationController
   end
 
   def show
-      if @current_user == find_dinner
-        find_dinner
-      else
-        dinner_party_path(params[:id])
-      end
+      #if @current_user == find_dinner
+      #  find_dinner
+      #end
+      @dinner = DinnerParty.find(params[:id])
   end
 
   def edit
