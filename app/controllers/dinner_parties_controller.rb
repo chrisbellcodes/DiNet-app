@@ -1,4 +1,11 @@
 class DinnerPartiesController < ApplicationController
+
+  def index
+    
+  
+  end
+
+
   def new
     @dinner = DinnerParty.new
     @users = User.all
