@@ -1,2 +1,10 @@
 <h1>DiNet HomePage</h1>
 
+<% @dinners.each do |dinner| %>
+<ul>
+  <li>
+    <%= link_to dinner.name, dinner %>
+  </li>
+</ul>
+
+<% end %>

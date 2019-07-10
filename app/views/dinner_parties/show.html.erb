@@ -1,2 +1,18 @@
-<h1>DinnerParties#show</h1>
-<p>Find me in app/views/dinner_parties/show.html.erb</p>
+<h1><%= @dinner.name %></h1>
+<h2>Host: <%= @dinner.host.name %> </h2>
+
+<h2>Party Details</h2>
+
+<ul>
+  <li>Theme: <%= @dinner.theme %> </li>
+  <li>Description: <%= @dinner.description %> </li>
+  <li>Location: <%= @dinner.location %> </li>
+  <li>Date: <%= @dinner.date %> </li>
+  <li>Start Time: <%= @dinner.start_time %> </li>
+  <li>End Time: <%= @dinner.end_time %> </li>
+</ul>
+
+<h2>Guest List</h2>
+
+<p> <%= button_to "Cancel This Party", dinner_party_path(@dinner), method: :delete %></p>
+<p> <%= button_to "Edit This Party", edit_dinner_party_path, method: :get %></p>

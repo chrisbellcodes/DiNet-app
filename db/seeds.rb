@@ -6,13 +6,6 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-<<<<<<< HEAD
-abril = User.create(name: "Abril", username: "abril", password: "abc123")
-chris = User.create(name: "Chris", username: "chris", password: "abc123")
-sam = User.create(name: "Sam", username: "sam")
-
-=======
->>>>>>> 8edaf833e4efaf85d6083faa2a2cf48da4e7b2ae
 
 # abril = User.create(username: "abril", password: "abc123", name: "Abril")
 # chris = User.create(username: "chris", password: "abc123", name: "Chris")

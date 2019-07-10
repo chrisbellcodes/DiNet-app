@@ -1,32 +1,41 @@
 class DinnerPartiesController < ApplicationController
 
-  def index
-    
-  
-  end
-
 
   def new
     @dinner = DinnerParty.new
-    @users = User.all
   end
 
   def create
-    @dinner = DinnerParty.create(dinner_params)
+    # byebug
+    @dinner = @current_user.hosted_parties.create(dinner_params)
 
     redirect_to dinner_party_path(@dinner)
   end
 
-  def edit
-
-  end
-
   def index
-
+    @dinners = DinnerParty.all
   end
 
   def show
+      if @current_user == find_dinner
+        find_dinner
+      else
+        dinner_party_path(params[:id])
+      end
+  end
 
+  def edit
+    find_dinner
+  end
+
+  def update
+    @dinner = @current_user.hosted_parties.update(dinner_params)
+    redirect_to dinner_party_path(@dinner)
+  end
+
+  def destroy
+     find_dinner.destroy
+     redirect_to user_path(@current_user)
   end
 
   private
@@ -35,6 +44,6 @@ class DinnerPartiesController < ApplicationController
   end
 
   def find_dinner
-    @dinner = Dinner.find(params[:id])
+    @dinner = @current_user.hosted_parties.find(params[:id])
   end
 end
