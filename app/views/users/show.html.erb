@@ -2,18 +2,18 @@
 
 <h2>Parties You're Hosting</h2>
 
+<div class="card-deck">
 <% @current_user.hosted_parties.each do |party| %>
 
-  <div class="card-deck" style="display: block">
-      <div class="card" style="width: 18rem;">
+      <div class="card">
       <!--   <img src="..." class="card-img-top" alt="..."> -->
         <div class="card-body">
           <h5 class="card-title"><%= party.name %></h5>
         <!-- <a href="#" class="btn btn-primary">Go somewhere</a> -->
           <%= link_to "Details", party, class: "btn btn-primary" %>
         </div>
-    </div>
     <% end %>
+  </div>
     <div style="display: block">
       <%= button_to "Through A Party", new_dinner_party_path, method: "get" %>
     </div>
@@ -22,9 +22,9 @@
 
 <h2>Parties You're Going To</h2>
 
+<div class="card-deck">
   <% @parties_attending.each do |party| %>
-    <div class="card-deck">
-        <div class="card" style="width: 33%;">
+        <div class="card">
         <!--   <img src="..." class="card-img-top" alt="..."> -->
           <div class="card-body">
             <h5 class="card-title"><%= party.name %></h5>
@@ -32,16 +32,8 @@
             <!-- <a href="#" class="btn btn-primary">Go somewhere</a> -->
             <%= link_to "Details", party, class: "btn btn-primary" %>
           </div>
-      </div>
-
-
-
-
-
-
-
-
-<% end %>
+  <% end %>
+</div>
 
 <div style="display: block">
 <%= button_to "Go To A Party", dinner_parties_path, method: "get", class: "btn btn-primary" %>

@@ -18,7 +18,9 @@ class GuestsController < ApplicationController
   end
 
   def destroy
-
+    #byebug
+    Guest.find(params[:id]).destroy
+    redirect_to user_path(@current_user.id)
   end
 
   private

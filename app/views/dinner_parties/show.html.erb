@@ -23,7 +23,15 @@
 
       <h2>Guest List</h2>
         <% @dinner.guests.each do |guest| %>
+        <ul>
+          <li>
+            <% if @current_user.id == guest.user.id %>
+              <%= guest.user.name %> <%= button_to "Cancel", "/guests/#{guest.user_id}", method: :delete %>
+            <% else %>
             <%= guest.user.name %>
+            <% end %>
+          </li>
+        </ul>
         <% end %>
 
       <p>Tell us what dish you are brining and join!.</p>
