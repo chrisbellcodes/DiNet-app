@@ -4,10 +4,13 @@ class GuestsController < ApplicationController
   end
 
   def create
-    @guest = Guest.create(guest_params)
+   #@dinner =  @current_user.guests.create(guest_params)
+   @guest = Guest.create(guest_params)
+   redirect_to user_path(@current_user)
   end
 
   def edit
+    
   end
 
   def update

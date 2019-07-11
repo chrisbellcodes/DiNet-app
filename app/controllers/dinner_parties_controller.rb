@@ -17,9 +17,7 @@ class DinnerPartiesController < ApplicationController
   end
 
   def show
-      #if @current_user == find_dinner
-      #  find_dinner
-      #end
+      @guest = Guest.new
       @dinner = DinnerParty.find(params[:id])
   end
 

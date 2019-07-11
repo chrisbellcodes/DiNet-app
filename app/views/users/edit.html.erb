@@ -1,2 +1,10 @@
-<h1>Users#edit</h1>
-<p>Find me in app/views/users/edit.html.erb</p>
+<h1>Change your dish</h1>
+
+    <%= form_for @guest do |f| %>
+        <%= f.hidden_field :dinner_party_id,  :value => @dinner.id %>
+        <%= f.hidden_field :user_id,  :value => @current_user.id %>
+        <%= f.label :dish %>
+        <%= f.text_field :dish %>
+        <%= f.submit "Join the Party!"%>
+     <% end %>
+     
