@@ -18,6 +18,11 @@ class UsersController < ApplicationController
   def edit
   end
 
+  def show
+    #byebug
+    @parties_attending = @current_user.dinner_parties
+  end
+
   private
 
   def user_params

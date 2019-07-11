@@ -1,0 +1,23 @@
+<h1></h1>
+
+<h2>Parties You're Hosting</h2>
+<ul>
+<% @current_user.hosted_parties.each do |party| %>
+  <li>
+  <%= link_to party.name, party %>
+  </li>
+<% end %>
+</ul>
+
+<p> <%= button_to "Through A Party", new_dinner_party_path, method: "get" %></p>
+
+<h2>Parties You're Going To</h2>
+<ul>
+  <% @parties_attending.each do |party| %>
+  <li>
+    <%= link_to party.name, party %>
+  </li>
+<% end %>
+</ul>
+
+<p> <%= button_to "Go To A Party", dinner_parties_path, method: "get" %></p>

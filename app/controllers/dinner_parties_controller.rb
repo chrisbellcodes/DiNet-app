@@ -21,6 +21,7 @@ class DinnerPartiesController < ApplicationController
       #  find_dinner
       #end
       @dinner = DinnerParty.find(params[:id])
+
   end
 
   def edit

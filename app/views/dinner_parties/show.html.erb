@@ -22,11 +22,19 @@
       </ul>
 
       <h2>Guest List</h2>
-      <p> <%= button_to "Join This Party", new_guest_path, method: "get" %></p>
+      <ul>
+        <% @dinner.users.each do |guest| %>
+          <li><%= guest.name %></li>
+      <% end %>
+      </ul>
+
+
+
+      <p> <%= button_to "Join This Party", edit_guest_path, method: "get" %></p>
 
     <% end %>
 <!--  Only the Host can see -->
-<% if @current_user && @current_user.hosted_parties.find(params[:id]) %>
+<% if @current_user && @current_user.id == @dinner.user_id %>
     <p> <%= button_to "Cancel This Party", dinner_party_path(@dinner), method: :delete %></p>
     <p> <%= button_to "Edit This Party", edit_dinner_party_path, method: :get %></p>
 <% end %>

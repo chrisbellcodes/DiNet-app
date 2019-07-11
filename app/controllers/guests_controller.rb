@@ -4,7 +4,6 @@ class GuestsController < ApplicationController
   end
 
   def create
-    @guest = Guest.create(guest_params)
   end
 
   def edit
