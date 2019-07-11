@@ -1,5 +1,7 @@
 <h1>DiNet HomePage</h1>
 
+<p> <%= button_to "Host a Party", new_dinner_party_path, method: "get" %></p>
+
 <% @dinners.each do |dinner| %>
 <ul>
   <li>
@@ -8,3 +10,5 @@
 </ul>
 
 <% end %>
+
+
