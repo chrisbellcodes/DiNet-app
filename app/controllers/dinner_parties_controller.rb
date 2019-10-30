@@ -1,14 +1,11 @@
 class DinnerPartiesController < ApplicationController
 
-
   def new
     @dinner = DinnerParty.new
   end
 
   def create
-    # byebug
     @dinner = @current_user.hosted_parties.create(dinner_params)
-
     redirect_to dinner_party_path(@dinner)
   end
 
@@ -19,7 +16,6 @@ class DinnerPartiesController < ApplicationController
   def show
       @guest = Guest.new
       @dinner = DinnerParty.find(params[:id])
-
   end
 
   def edit

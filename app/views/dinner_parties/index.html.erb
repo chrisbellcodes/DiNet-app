@@ -1,14 +1,18 @@
-<h1>DiNet HomePage</h1>
 
-<p> <%= button_to "Host a Party", new_dinner_party_path, method: "get" %></p>
+<div class="container">
+  <%  if @current_user %>
+  <p> <%= link_to "Host a Party", new_dinner_party_path, class: "btn btn-primary" %></p>
+  <% end %>
+</div>
 
-<% @dinners.each do |dinner| %>
-<ul>
-  <li>
-    <%= link_to dinner.name, dinner %>
-  </li>
-</ul>
-
-<% end %>
-
-
+<div class="container">
+  <% @dinners.each do |dinner| %>
+  <div class="card pt-xl-3">
+    <!--   <img src="..." class="card-img-top" alt="..."> -->
+    <div class="card-body">
+        <h5 class="card-title"><%=dinner.name%></h5>
+        <%= link_to dinner.name, dinner, class: "btn btn-primary" %>
+      </div>
+    </div>
+  <% end %>
+</div>

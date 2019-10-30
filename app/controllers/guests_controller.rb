@@ -9,16 +9,7 @@ class GuestsController < ApplicationController
    redirect_to user_path(@current_user)
   end
 
-  def edit
-
-  end
-
-  def update
-
-  end
-
   def destroy
-    #byebug
     Guest.find(params[:id]).destroy
     redirect_to user_path(@current_user.id)
   end

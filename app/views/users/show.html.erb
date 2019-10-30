@@ -1,29 +1,43 @@
 <h1></h1>
 
-<h2>Parties You're Hosting</h2>
+<div class="container">
+  <div class="row justify-content-center">
+    <h2>Parties You're Hosting</h2>
+    <%= button_to "Throw A Party", new_dinner_party_path, method: "get", class: "btn btn-primary" %>
+  </div>
+</div>
 
-<div class="card-deck">
-<% @current_user.hosted_parties.each do |party| %>
 
+
+  <div class="container">
+    <div class="card-deck">
+      <% @current_user.hosted_parties.each do |party| %>
       <div class="card">
-      <!--   <img src="..." class="card-img-top" alt="..."> -->
+        <!--   <img src="..." class="card-img-top" alt="..."> -->
         <div class="card-body">
           <h5 class="card-title"><%= party.name %></h5>
-        <!-- <a href="#" class="btn btn-primary">Go somewhere</a> -->
           <%= link_to "Details", party, class: "btn btn-primary" %>
         </div>
-    <% end %>
-  </div>
-    <div style="display: block">
-      <%= button_to "Through A Party", new_dinner_party_path, method: "get" %>
+      </div>
+      <% end %>
+    </div>
+</div>
+
+
+
+
+  <div class="container">
+    <div class="row">
+        <h2>Parties You're Going To</h2>
+        <%= button_to "Go To A Party", dinner_parties_path, method: "get", class: "btn btn-primary" %>
+      </div>
     </div>
 
 
-
-<h2>Parties You're Going To</h2>
-
-<div class="card-deck">
-  <% @parties_attending.each do |party| %>
+<div class="row">
+  <div class="container">
+  <div class="card-deck">
+    <% @parties_attending.each do |party| %>
         <div class="card">
         <!--   <img src="..." class="card-img-top" alt="..."> -->
           <div class="card-body">
@@ -32,9 +46,8 @@
             <!-- <a href="#" class="btn btn-primary">Go somewhere</a> -->
             <%= link_to "Details", party, class: "btn btn-primary" %>
           </div>
-  <% end %>
+        </div>
+      <% end %>
+  </div>
 </div>
-
-<div style="display: block">
-<%= button_to "Go To A Party", dinner_parties_path, method: "get", class: "btn btn-primary" %>
 </div>

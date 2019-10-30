@@ -1,6 +1,8 @@
+<div class="container">
+
 <h1><%= @dinner.name %></h1>
 
-  <!--  If login you can see  -->
+  <!--  If logged in you can see  -->
   <% if @current_user %>
     <h2>Host: <%= @dinner.host.name %> </h2>
   <% end %>
@@ -13,7 +15,7 @@
   <li>Description: <%= @dinner.description %> </li>
 
 
-    <!--  If login you can see -->
+    <!--  If logged in you can see -->
     <% if @current_user %>
         <li>Location: <%= @dinner.location %> </li>
         <li>Date: <%= @dinner.date %> </li>
@@ -26,15 +28,18 @@
         <ul>
           <li>
             <% if @current_user.id == guest.user.id %>
-              <%= guest.user.name %> <%= button_to "Cancel", "/guests/#{guest.user_id}", method: :delete %>
+              <p><%= guest.user.name %> - Your dish: <%= guest.dish %></p><p><%= button_to "Edit your Dish", edit_guest_path(guest) %></p>
+              <%= button_to "Cancel", guest_path(guest), method: :delete %>
             <% else %>
             <%= guest.user.name %>
+            <%= guest.dish %>
             <% end %>
           </li>
         </ul>
         <% end %>
 
       <p>Tell us what dish you are brining and join!.</p>
+      
       <%= form_for @guest do |f| %>
         <%= f.hidden_field :dinner_party_id,  :value => @dinner.id %>
         <%= f.hidden_field :user_id,  :value => @current_user.id %>
@@ -43,12 +48,14 @@
         <%= f.submit "Join the Party!"%>
       <% end %>
 
-
-
+      <p> <%= button_to "Go to my Dinners", user_path(@current_user), method: :get %></p>
     <% end %>
+
 <!--  Only the Host can see -->
 <% if @current_user && @current_user.id == @dinner.user_id  %>
     <p> <%= button_to "Cancel This Party", dinner_party_path(@dinner), method: :delete %></p>
     <p> <%= button_to "Edit This Party", edit_dinner_party_path, method: :get %></p>
     <p> <%= button_to "Host a Party", new_dinner_party_path, method: :get %></p>
 <% end %>
+
+</div>

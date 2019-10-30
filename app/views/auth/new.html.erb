@@ -1,8 +1,15 @@
-<h1>Log In</h1>
+<div class="container">
 
-
-<%= form_tag "/auth" do%>
-    <%= text_field_tag :username %>
-    <%= password_field_tag :password %>
-    <%= submit_tag "Log In!" %>
-<%end%>
+  <fieldset class="form-group">
+    <h1>Log In</h1>
+    <div class="form-group">
+      <%= form_tag "/auth" do %>
+      <%= label_tag :username, "Username" %>
+      <%= text_field_tag :username, "", class: "form-control" %>
+      <%= label_tag :password, "Passwrd" %>
+      <%= password_field_tag :password, "", class: "form-control" %>
+      <%= submit_tag "Log In!" %>
+      <%end%>
+    </div>
+  </fieldset>
+</div>

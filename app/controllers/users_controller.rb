@@ -1,13 +1,10 @@
 class UsersController < ApplicationController
 
   def show
-    # byebug
-    # @user = User.find(params[:id])
     @guest = Guest.find(params[:id])
     @dinner = DinnerParty.find()
   end
 
-  
   def new
     @user = User.new
   end
@@ -22,13 +19,7 @@ class UsersController < ApplicationController
     end
   end
 
-
-
-  def edit
-  end
-
   def show
-    #byebug
     @parties_attending = @current_user.dinner_parties
   end
 
@@ -38,7 +29,7 @@ class UsersController < ApplicationController
     params.require(:user).permit(:username, :password, :name)
   end
 
-  
+
 
 
 end

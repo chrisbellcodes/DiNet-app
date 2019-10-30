@@ -1,20 +1,26 @@
-<%= form_for @dinner do |f| %>
-  <%# f.label :host %>
-  <%# f.collection_select :user_id, @users, :id, :name %>
-  <%= f.label :name %>
-  <%= f.text_field  :name %>
-  <%= f.label :theme %>
-  <%= f.text_field :theme %>
-  <%= f.label :description %>
-  <%= f.text_area :description %>
-  <%= f.label :location %>
-  <%= f.text_field :location %>
-  <%= f.label :date %>
-  <%= f.date_select :date %>
-  <%= f.label :start_time %>
-  <%= f.time_select :start_time, { prompt: true, ampm: true, minute_step: 15} %>
-  <%= f.label :end_time %>
-  <%= f.time_select :end_time, { prompt: true, ampm: true, minute_step: 15} %>
 
-  <%= f.submit %>
-<% end %>
+<div class="container">
+  <div class="form-group">
+    <%= form_for @dinner do |f| %>
+      <%# f.label :host %>
+      <%# f.collection_select :user_id, @users, :id, :name %>
+      <%= f.label :name %>
+      <%= f.text_field  :name, class: "form-control" %>
+      <%= f.label :theme %>
+      <%= f.text_field :theme, class: "form-control" %>
+      <%= f.label :description %>
+      <%= f.text_area :description, class: "form-control" %>
+      <%= f.label :location %>
+      <%= f.text_field :location, class: "form-control" %>
+      <%= f.label :date %>
+      <%= f.date_select :date %>
+      <%= f.label :start_time%>
+      <%= f.time_select :start_time, { prompt: true, ampm: true, minute_step: 15} %>
+      <%= f.label :end_time %>
+      <%= f.time_select :end_time, { prompt: true, ampm: true, minute_step: 15} %>
+
+      <%= f.submit %>
+    <% end %>
+
+</div>
+</div>

@@ -12,15 +12,33 @@
   <body>
     <header>
       <% if @logged_in %>
-        <p>
-          Logged in as: <%= @current_user.name %>
-        </p>
-        <%= button_to "Log Out", "/auth", method: :delete %>
+      <nav class="navbar bg-dark navbar-dark navbar-expand-sm">
+        <div class="container">
+          <div class="navbar-brand">🍽  DINET  🍽</div>
+            <div class="navbar-nav">
+                <%= link_to "Home", dinner_parties_path, class: "nav-item nav-link" %>
+              <div class= "nav-item nav-link disabled">
+                Logged in as: <%= @current_user.name %>
+              </div>
+              <%= link_to "Log Out", "/auth", method: :delete, class: "nav-item nav-link" %>
+            </div>
+          </div>
+        </nav>
       <% else %>
-        <%= link_to "Home", dinner_parties_path %>
-        <%= link_to "Login", new_auth_path %>
-        <%= link_to "Sign Up", new_user_path %>
-        
+
+        <nav class="navbar bg-dark navbar-dark navbar-expand-sm">
+          <div class="container">
+            <div class="navbar-brand">🍽  DINET  🍽</div>
+              <div class="navbar-nav">
+                <%= link_to "Home", dinner_parties_path, class: "nav-item nav-link" %>
+                <%= link_to "Login", new_auth_path, class: "nav-item nav-link" %>
+                <%= link_to "Sign Up", new_user_path, class: "nav-item nav-link" %>
+              </div>
+          </div>
+        </nav>
+
+
+
       <% end %>
 
       <% if flash[:message] %>
