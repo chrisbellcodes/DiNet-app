@@ -1,24 +1,18 @@
-<h1></h1>
-
-<div class="container">
-  <div class="row justify-content-center">
-    <h2>Parties You're Hosting</h2>
-    <%= button_to "Throw A Party", new_dinner_party_path, method: "get", class: "btn btn-primary" %>
+<div class="body">
+  <div class="row justify-content-center p-3">
+    <h1 class="pr-4">Parties You're Hosting</h1>
+    <%= button_to "Throw A Party", new_dinner_party_path, method: "get", class: "btn btn-primary pl-3" %>
   </div>
-</div>
 
-
-
-  <div class="container">
-    <div class="card-deck">
+  <div class="container pb-3">
+    <div class="wrapper">
       <% @current_user.hosted_parties.each do |party| %>
-      <div class="card">
-        <!--   <img src="..." class="card-img-top" alt="..."> -->
-        <div class="card-body">
-          <h5 class="card-title"><%= party.name %></h5>
-          <%= link_to "Details", party, class: "btn btn-primary" %>
+
+        <div class="panel">
+          <h5 class=""><%= party.name %></h5>
+          <%= link_to "Party Details", party, class: "btn btn-primary" %>
         </div>
-      </div>
+
       <% end %>
     </div>
 </div>
@@ -26,28 +20,25 @@
 
 
 
-  <div class="container">
-    <div class="row">
-        <h2>Parties You're Going To</h2>
+  <div class="container p-3">
+    <div class="row justify-content-center">
+        <h1 class="pr-3">Parties You're Going To</h1>
         <%= button_to "Go To A Party", dinner_parties_path, method: "get", class: "btn btn-primary" %>
       </div>
     </div>
 
 
-<div class="row">
   <div class="container">
-  <div class="card-deck">
-    <% @parties_attending.each do |party| %>
-        <div class="card">
-        <!--   <img src="..." class="card-img-top" alt="..."> -->
-          <div class="card-body">
-            <h5 class="card-title"><%= party.name %></h5>
-            <p class="card-text"><%= party.description %></p>
-            <!-- <a href="#" class="btn btn-primary">Go somewhere</a> -->
-            <%= link_to "Details", party, class: "btn btn-primary" %>
-          </div>
+    <div class="wrapper">
+      <% @parties_attending.each do |party| %>
+        <div class="">
+          <h5 class=""><%= party.name %></h5>
+          <p class=""><%= party.description %></p>
+          <!-- <a href="#" class="btn btn-primary">Go somewhere</a> -->
+          <%= link_to "Details", party, class: "btn btn-primary" %>
         </div>
       <% end %>
+    </div>
   </div>
-</div>
+
 </div>

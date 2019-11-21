@@ -2,6 +2,8 @@ Rails.application.routes.draw do
 
   resources :dinner_parties
 
+  get '/', to: 'dinner_parties#index'
+
   resources :guests
 
   resources :users

@@ -11,4 +11,86 @@
  * It is generally better to create a new file per style scope.
  *
  */
- @import "bootstrap";
+@import "bootstrap";
+@import "./dinner_parties";
+
+*,
+*:before,
+*:after {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 40px;
+  font-family: "Titillium Web", sans-serif;
+  background-color: #fff;
+  color: #444;
+  background: url(dinetbkgrd.jpg) center;
+  background-size: cover;
+}
+
+h1,
+p {
+  margin: 0 0 1em 0;
+}
+
+h1 {
+  // font-family: "Overlock", cursive;
+}
+
+.logo {
+  font-family: "Sacramento", cursive;
+  font-size: 40px;
+}
+
+.wrapper {
+  max-width: 940px;
+  margin: 0 20px;
+  display: grid;
+  grid-gap: 10px;
+}
+
+/* no grid support */
+.wrapper {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.wrapper {
+  display: grid;
+  margin: 0 auto;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  grid-auto-rows: minmax(150px, auto);
+}
+
+.panel {
+  /* needed for the flex layout*/
+  margin-left: 5px;
+  margin-right: 5px;
+  flex: 1 1 200px;
+}
+.body,
+.header,
+.footer {
+  margin-left: 5px;
+  margin-right: 5px;
+  flex: 0 1 100%;
+  grid-column: 1 / -1;
+}
+
+.wrapper > * {
+  background-color: #fff;
+  border: 3px solid #444;
+  border-color: #444;
+  border-radius: 5px;
+  padding: 20px;
+  margin-bottom: 10px;
+}
+
+/* We need to set the margin used on flex items to 0 as we have gaps in grid.  */
+
+@supports (display: grid) {
+  .wrapper > * {
+    margin: 0;
+  }
+}

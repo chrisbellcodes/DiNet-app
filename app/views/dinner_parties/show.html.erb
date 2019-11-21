@@ -1,4 +1,4 @@
-<div class="container">
+<div class="footer">
 
 <h1><%= @dinner.name %></h1>
 
@@ -39,7 +39,7 @@
         <% end %>
 
       <p>Tell us what dish you are brining and join!.</p>
-      
+
       <%= form_for @guest do |f| %>
         <%= f.hidden_field :dinner_party_id,  :value => @dinner.id %>
         <%= f.hidden_field :user_id,  :value => @current_user.id %>

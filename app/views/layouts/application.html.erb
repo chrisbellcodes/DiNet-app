@@ -5,41 +5,39 @@
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
-    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <link href="https://fonts.googleapis.com/css?family=Overlock|Sacramento|Titillium+Web&display=swap" rel="stylesheet">
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
   <body>
-    <header>
-      <% if @logged_in %>
-      <nav class="navbar bg-dark navbar-dark navbar-expand-sm">
-        <div class="container">
-          <div class="navbar-brand">🍽  DINET  🍽</div>
-            <div class="navbar-nav">
-                <%= link_to "Home", dinner_parties_path, class: "nav-item nav-link" %>
-              <div class= "nav-item nav-link disabled">
-                Logged in as: <%= @current_user.name %>
-              </div>
-              <%= link_to "Log Out", "/auth", method: :delete, class: "nav-item nav-link" %>
+    <div class="wrapper">
+
+    <header class="header">
+      <div class="logo">🍽  Dinet  🍽</div>
+      <!-- NAV BAR: Shows Logged out when the user is logged in -->
+      <nav class="">
+        <% if @logged_in %>
+          <div class="">
+            <div class= " disabled">
+              Logged in as: <%= @current_user.name %>
             </div>
+            <%= link_to "Your Profile", user_path(@current_user), class: "" %>
+            <%= link_to "Host a Party", new_dinner_party_path, class: "" %>
+            <%= link_to "Parties", dinner_parties_path, class: "" %>
+            <%= link_to "Log Out", "/auth", method: :delete, class: "" %>
           </div>
-        </nav>
-      <% else %>
-
-        <nav class="navbar bg-dark navbar-dark navbar-expand-sm">
-          <div class="container">
-            <div class="navbar-brand">🍽  DINET  🍽</div>
-              <div class="navbar-nav">
-                <%= link_to "Home", dinner_parties_path, class: "nav-item nav-link" %>
-                <%= link_to "Login", new_auth_path, class: "nav-item nav-link" %>
-                <%= link_to "Sign Up", new_user_path, class: "nav-item nav-link" %>
+        <% else %>
+    <!-- NAV BAR: Shows sign up and login links when the user is logged out -->
+          <div class="">
+              <div class="">
+                <%= link_to "Home", dinner_parties_path, class: "" %>
+                <%= link_to "Login", new_auth_path, class: "" %>
+                <%= link_to "Sign Up", new_user_path, class: "" %>
               </div>
           </div>
-        </nav>
-
-
-
-      <% end %>
+        <% end %>
+    </nav>
 
       <% if flash[:message] %>
           <%= flash[:message] %>
@@ -48,5 +46,6 @@
     </header>
 
     <%= yield %>
+  </div>
   </body>
 </html>

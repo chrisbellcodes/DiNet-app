@@ -1,18 +1,8 @@
+  <!-- Displays Party List -->
+    <% @dinners.each do |dinner| %>
+    <div class="panel">
+          <h5 class=""><%=dinner.name%></h5>
 
-<div class="container">
-  <%  if @current_user %>
-  <p> <%= link_to "Host a Party", new_dinner_party_path, class: "btn btn-primary" %></p>
-  <% end %>
-</div>
-
-<div class="container">
-  <% @dinners.each do |dinner| %>
-  <div class="card pt-xl-3">
-    <!--   <img src="..." class="card-img-top" alt="..."> -->
-    <div class="card-body">
-        <h5 class="card-title"><%=dinner.name%></h5>
-        <%= link_to dinner.name, dinner, class: "btn btn-primary" %>
+          <button type="button" name="See more party details"><%= link_to 'See More Details', dinner, class: "" %> </button>
       </div>
-    </div>
-  <% end %>
-</div>
+    <% end %>
