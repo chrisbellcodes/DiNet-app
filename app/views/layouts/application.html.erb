@@ -14,28 +14,25 @@
     <div class="wrapper">
 
     <header class="header">
-      <div class="logo">🍽  Dinet  🍽</div>
-      <!-- NAV BAR: Shows Logged out when the user is logged in -->
-      <nav class="">
+      <div class="container">
+        <div class="logo">🍽  Dinet  🍽</div>
         <% if @logged_in %>
-          <div class="">
-            <div class= " disabled">
-              Logged in as: <%= @current_user.name %>
-            </div>
-            <%= link_to "Your Profile", user_path(@current_user), class: "" %>
-            <%= link_to "Host a Party", new_dinner_party_path, class: "" %>
-            <%= link_to "Parties", dinner_parties_path, class: "" %>
-            <%= link_to "Log Out", "/auth", method: :delete, class: "" %>
-          </div>
+            Logged in as: <%= @current_user.name %>
+        </div>
+
+      <% end %>
+      <!-- NAV BAR: Shows Logged out when the user is logged in -->
+      <nav class="navlinks">
+        <% if @logged_in %>
+          <%= link_to "Your Profile", user_path(@current_user), class: "px-3" %>
+          <%= link_to "Host a Party", new_dinner_party_path, class: "px-3" %>
+          <%= link_to "Parties", dinner_parties_path, class: "px-3" %>
+          <%= link_to "Log Out", "/auth", method: :delete, class: "px-3" %>
         <% else %>
     <!-- NAV BAR: Shows sign up and login links when the user is logged out -->
-          <div class="">
-              <div class="">
-                <%= link_to "Home", dinner_parties_path, class: "" %>
-                <%= link_to "Login", new_auth_path, class: "" %>
-                <%= link_to "Sign Up", new_user_path, class: "" %>
-              </div>
-          </div>
+          <%= link_to "Home", dinner_parties_path, class: "px-3" %>
+          <%= link_to "Login", new_auth_path, class: "px-3" %>
+          <%= link_to "Sign Up", new_user_path, class: "px-3" %>
         <% end %>
     </nav>
 

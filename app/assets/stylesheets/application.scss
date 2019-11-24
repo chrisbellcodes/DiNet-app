@@ -38,11 +38,6 @@ h1 {
   // font-family: "Overlock", cursive;
 }
 
-.logo {
-  font-family: "Sacramento", cursive;
-  font-size: 40px;
-}
-
 .wrapper {
   max-width: 940px;
   margin: 0 20px;
@@ -69,24 +64,43 @@ h1 {
   margin-right: 5px;
   flex: 1 1 200px;
 }
-.body,
-.header,
-.footer {
-  margin-left: 5px;
-  margin-right: 5px;
-  flex: 0 1 100%;
-  grid-column: 1 / -1;
+
+//     <----- Nav ----->
+
+nav {
+  float: right;
+  position: relative;
+  bottom: 70px;
+  right: 40px;
+}
+
+.navlinks > * {
+  font-size: 20px;
+}
+.logo {
+  font-family: "Sacramento", cursive;
+  font-size: 50px;
+  padding-top: 20px;
 }
 
 .wrapper > * {
   background-color: #fff;
-  border: 3px solid #444;
+  opacity: 95%;
   border-color: #444;
   border-radius: 5px;
   padding: 20px;
   margin-bottom: 10px;
 }
 
+.body,
+.header,
+.footer {
+  background-color: #e3e1ed;
+  margin-left: 5px;
+  margin-right: 5px;
+  flex: 0 1 100%;
+  grid-column: 1 / -1;
+}
 /* We need to set the margin used on flex items to 0 as we have gaps in grid.  */
 
 @supports (display: grid) {
