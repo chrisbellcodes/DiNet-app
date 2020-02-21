@@ -12,6 +12,9 @@
 
 ActiveRecord::Schema.define(version: 2019_07_11_135157) do
 
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
   create_table "dinner_parties", force: :cascade do |t|
     t.integer "user_id"
     t.date "date"
