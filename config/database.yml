@@ -47,3 +47,12 @@ test:
   username: ChrisBell
   password:
   timeout: 5000
+
+production:
+  adapter: postgresql
+  encoding: unicode
+  database: DiNet-app_production
+  pool: 5
+  username: ChrisBell
+  password:
+  timeout: 5000
