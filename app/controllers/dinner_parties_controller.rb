@@ -6,6 +6,7 @@ class DinnerPartiesController < ApplicationController
 
   def create
     @dinner = @current_user.hosted_parties.create(dinner_params)
+    @dinner.save()
     redirect_to dinner_party_path(@dinner)
   end
 

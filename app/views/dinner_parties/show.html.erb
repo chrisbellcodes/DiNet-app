@@ -52,7 +52,7 @@
     <% end %>
 
 <!--  Only the Host can see -->
-<% if @current_user && @current_user.id == @dinner.user_id  %>
+<% if @current_user && @current_user.id == @dinner.host_id  %>
     <p> <%= button_to "Cancel This Party", dinner_party_path(@dinner), method: :delete %></p>
     <p> <%= button_to "Edit This Party", edit_dinner_party_path, method: :get %></p>
     <p> <%= button_to "Host a Party", new_dinner_party_path, method: :get %></p>
