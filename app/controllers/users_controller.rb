@@ -3,6 +3,7 @@ class UsersController < ApplicationController
   def show
     @guest = Guest.find(params[:id])
     @dinner = DinnerParty.find()
+    byebug
   end
 
   def new
