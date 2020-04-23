@@ -1,7 +1,7 @@
 class CreateDinnerParties < ActiveRecord::Migration[5.2]
   def change
     create_table :dinner_parties do |t|
-      t.belongs_to :host, foreign_key: true
+      t.belongs_to :host, :foreign_key => { :to_table => :users }
       t.date :date
       t.string :location
       t.time :start_time
