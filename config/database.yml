@@ -81,5 +81,5 @@ test:
 production:
   <<: *default
   database: DiNet-app_production
-  username: znvkdehvxwlssw
+  username: 
   password: <%= ENV['MYAPP_DATABASE_PASSWORD'] %>
